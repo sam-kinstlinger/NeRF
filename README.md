@@ -19,3 +19,5 @@ o	d ∈ R3 – A unit vector (direction of length 1) indicating the camera’s v
 •	Outputs:
 o	c ∈ R3 - The red, green, and blue color values emitted from point x in direction d. This is the appearance of the point from the camera’s perspective. It's what the renderer ultimately uses to construct the final image. When the renderer samples many points along a camera ray and combines their c values using volume rendering, it produces the final pixel color.
 o	σ ∈ R>=0 - A scalar representing how much material exists at point x—specifically, how likely it is for light to be absorbed or emitted there. σ = 0: The point is completely transparent (like air or empty space). High σ: The point is highly opaque or solid (like the surface of a wall). It determines how much a point along a ray contributes to the final pixel color. This is crucial for volume rendering. NeRF doesn’t directly generate 3D surfaces—instead, it builds them up implicitly by assigning high σ values to points that make up visible surfaces. 
+
+We need a function that tells us how much color comes from each point along the ray, and how much of that light actually reaches the camera.
